@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--forms is used to collect the user info-
+    to take details seperately we use a tag called            <fieldset>   
+        
+        lengend tag helps to give the names o thr particular fields
+                                                                <legend>personal details</legend>
+                                                              </fieldset>   ->
+    <!-- <form action="#" method="POST">
+        first name:<input type="text" name="fname" value="raziya"readonly> <br>
+        last name:<input type="text" name="lname" placeholder="eneter lastname" required > <br>-->
+
+
+        <!-- <form action="#" method="POST">
+        first name:<input type="text" name="fname" value="raziya"readonly> <br>
+        last name:<input type="text" name="lname" value="sultana"disabled> <br>-->
+    <form action="#" method="POST"novalidate>
+<fieldset>
+<legend>LOGIN DETAILS</legend>
+    <label for="sky">FIRSTNAME</label><!--for is used to links between label tag and input tag with the help of for and id-->
+
+        first name:<input type="text" name="fname" id="sky" minlength="4" maxlength="8"> <br>
+        last name:<input type="text" name="lname" <br>
+        password:<input type="password" name="pwd" required pattern="raziya123"> <br>
+        <input type="submit" value="submit"> <br>
+        <input type="reset" name="" id=""> <br>
+
+    </fieldset>
+        <input type="radio" name="gender" value="male">MALE
+        <input type="radio" name="gender" value="female">FEMALE <br>
+        <!-- <input type="radio" name="gender" value="female"checked>FEMALE <br>-->
+
+        <input type="checkbox" name="lang" value="java"> JAVA<br>
+        <input type="checkbox" name="lang" value="SQL"> SQL<br>
+        <input type="checkbox" name="lang" value="WEBTECH"> WEBTECH<br>
+
+        <!--DROPDOWN-->
+        <select name="cartoons"  size="3" id="">
+        <option value="tom and jerry">tom and jerry</option>
+        <option value="chota bheem">chota bheem</option>
+        <option value="oswald">oswald</option>
+        
+
+
+        </select>
+        <button> submit</button>
+        <input type="button" value ="click here">
+        <input type="file" name="my file">
+        <textarea name="story" id="" cols="30" rows="10">once upon a time</textarea><br>
+
+         <!--dropdown can be created using <select> and also <datalist>-->
+        <input list="languages"><!--to create drop down
+        input related to list
+        datalist related to id-->
+        <datalist id="languages">
+            <option value="kannada">kannada</option>
+            <option value="english">english</option>
+            <option value="telugu">telugu</option>
+            <option value="hindi">hindi</option>
+            
+        </datalist>
+
+   <input type="datetime-local" name
+<input type="email" name=""id="">
+<input type="url" name="" id="">
+number:<input type="number" name="" id="" min="10" max="100" step="2">
+
+<audio controls>
+    <source src="" type="audio/mp3">
+</audio>
+    </form>
+</body>
+</html>
