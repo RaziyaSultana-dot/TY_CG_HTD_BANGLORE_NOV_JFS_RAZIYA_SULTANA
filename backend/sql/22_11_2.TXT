@@ -1,0 +1,27 @@
+ --PROJECTION:
+
+ --SELECT */[DISTINCT] COLUMN_MN/ EXPRESSION [ALIAS] FROM TABLE_NM--
+- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+- --SELECTION:
+
+- --SELECT */[DISTINCT] COLUMN_MN/ EXPRESSION [ALIAS] FROM TABLE_NM WHERE <FILTER CONDITION>--------------------------
+
+      -ORDER OF EXECUTION---
+1)FROM----2)WHERE(IF ANY)---3)GROUP BY---4)SELECT
+- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-GROUP BY
+--SELECT */[DISTINCT] COLUMN_MN/ EXPRESSION [ALIAS] FROM TABLE_NM WHERE <FILTER CONDITION> GROUP BY COLUMN_NM
+
+- ------ORDER OF EXECUTION----
+1)FROM---2)WHERE(IF ANY)---3)GROUP BY---4)SELECT
+- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--HAVING CLAUSE
+
+SELECT */[DISTINCT] COLUMN_MN/ EXPRESSION [ALIAS] FROM TABLE_NM WHERE <FILTER CONDITION> GROUP BY COLUMNNM HAVING <GROUP FILTER CONDITION>-------
+
+ORDER OF EXECUTION
+-----------------1)FROM---2)WHERE(IF ANY)---3)GROUP BY--4)HAVING--5)SELECT

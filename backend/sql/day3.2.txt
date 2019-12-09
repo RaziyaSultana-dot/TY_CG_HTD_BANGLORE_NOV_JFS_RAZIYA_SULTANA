@@ -1,0 +1,275 @@
+SQL> /* Functions: there are two types of functions
+SQL> they are -> single row functions
+SQL>          ->multi row functions
+SQL> examples of MULTI ROW FUNCTIONS====AVG==MAX==MIN==SUM==COUNT
+SQL> */
+SQL> select max(sal) from emp;
+
+  MAX(SAL)                                                                      
+----------                                                                      
+      5000                                                                      
+
+SQL> select avg(sal) from emp;
+
+  AVG(SAL)                                                                      
+----------                                                                      
+2073.21429                                                                      
+
+SQL> select min(sal) from emp;
+
+  MIN(SAL)                                                                      
+----------                                                                      
+       800                                                                      
+
+SQL> select sum(sal) from emp;
+
+  SUM(SAL)                                                                      
+----------                                                                      
+     29025                                                                      
+
+SQL> select count(ename) from emp;
+
+COUNT(ENAME)                                                                    
+------------                                                                    
+          14                                                                    
+
+SQL> select count(comm) from emp;
+
+COUNT(COMM)                                                                     
+-----------                                                                     
+          4                                                                     
+
+SQL> select count(mgr) from emp;
+
+COUNT(MGR)                                                                      
+----------                                                                      
+        13                                                                      
+
+SQL> select avg(deptno) from emp;
+
+AVG(DEPTNO)                                                                     
+-----------                                                                     
+ 22.1428571                                                                     
+
+SQL> select sum(comm) from emp;
+
+ SUM(COMM)                                                                      
+----------                                                                      
+      2200                                                                      
+
+SQL> /* MULTI ROW FUNCTIONS IGNORE THE NILL VALUES*/
+SQL> ED
+Wrote file afiedt.buf
+
+  1* select sum(comm) from emp
+SQL> --WE CAN USE -- --
+SQL> CL SCR
+SQL> select * from emp;--hello--
+> /
+  2  ed
+  3  
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select * from emp--hello-- 
+  2  /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> select max(sal),min(sal),avg(sal),sum(sal),count(sal) from emp;
+
+  MAX(SAL)   MIN(SAL)   AVG(SAL)   SUM(SAL) COUNT(SAL)                          
+---------- ---------- ---------- ---------- ----------                          
+      5000        800 2073.21429      29025         14                          
+
+SQL> set lines 120 pages 80
+SQL> /
+
+  MAX(SAL)   MIN(SAL)   AVG(SAL)   SUM(SAL) COUNT(SAL)                                                                  
+---------- ---------- ---------- ---------- ----------                                                                  
+      5000        800 2073.21429      29025         14                                                                  
+
+SQL> --WE CANNOT USE GROUP BY ALONG WITH WHERE--
+SQL> --NO OF ARGUMENTS FOR A MULTI ROW FUNCTION SHOULD BE SINGULAR IN NUMBER--
+SQL> select sal from emp group by sal;
+
+       SAL                                                                                                              
+----------                                                                                                              
+      2450                                                                                                              
+      5000                                                                                                              
+      1300                                                                                                              
+      1250                                                                                                              
+      2850                                                                                                              
+      2975                                                                                                              
+      1100                                                                                                              
+      3000                                                                                                              
+       800                                                                                                              
+      1600                                                                                                              
+      1500                                                                                                              
+       950                                                                                                              
+
+12 rows selected.
+
+SQL> select sal from emp group by sal;
+
+       SAL                                                                                                              
+----------                                                                                                              
+      2450                                                                                                              
+      5000                                                                                                              
+      1300                                                                                                              
+      1250                                                                                                              
+      2850                                                                                                              
+      2975                                                                                                              
+      1100                                                                                                              
+      3000                                                                                                              
+       800                                                                                                              
+      1600                                                                                                              
+      1500                                                                                                              
+       950                                                                                                              
+
+12 rows selected.
+
+SQL> select sal from emp group by deptno;
+select sal from emp group by deptno
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> 
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select ename from emp group by deptno
+SQL> /
+select ename from emp group by deptno
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> select * from emp group by deptno;
+select * from emp group by deptno
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> select count(deptno) from emp group by deptno;
+
+COUNT(DEPTNO)                                                                                                           
+-------------                                                                                                           
+            6                                                                                                           
+            5                                                                                                           
+            3                                                                                                           
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select count(deptno) , deptno from emp group by deptno
+SQL> /
+
+COUNT(DEPTNO)     DEPTNO                                                                                                
+------------- ----------                                                                                                
+            6         30                                                                                                
+            5         20                                                                                                
+            3         10                                                                                                
+
+SQL> --GROUP BY IS USED TO GROUP THE RECORDS. BY USING "GROUP BY" WE CAN USE OTHER COLUMN NAMES ALONG WITH MULTI ROW FUNCTIONS.  BUT THE COLUMN ADDED SHOULD BE ONLY THE COLUMN WHICH IS USED IN GROUP BY CLAUSE=====EX: SELECT COUNT(DEPTNO),DEPTNO FROM EMP GROUP BY DEPTNO======----
+SQL> select sum(sal) from emp group by deptno;
+
+  SUM(SAL)                                                                                                              
+----------                                                                                                              
+      9400                                                                                                              
+     10875                                                                                                              
+      8750                                                                                                              
+
+SQL> select avg(sum(sal)) from emp group by deptno;
+
+AVG(SUM(SAL))                                                                                                           
+-------------                                                                                                           
+         9675                                                                                                           
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select (sum(sal)) from emp group by deptno
+SQL> /
+
+(SUM(SAL))                                                                                                              
+----------                                                                                                              
+      9400                                                                                                              
+     10875                                                                                                              
+      8750                                                                                                              
+
+SQL> ---ALONG WITH GROUP BY FUNCTION WE CAN USE "HAVING" CLAUSE----
+SQL> SPOOL OFF
